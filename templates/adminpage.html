@@ -13,15 +13,29 @@
     {%for un in uns%}
     <li>{{un}}</li>
     {%endfor%}
-  </ol>
-  <form class="" action="/admin" method="post">
+  </ol><br>
+  <h2>add user</h2>
+  <form class="" action="/adminaction?action=add" method="post">
     <input type="text" name="un" value="" placeholder="username"><br>
     <input type="password" name="pw" value=""placeholder="password">
     <button type="submit" name="button">add</button>
   </form>
+  <br>
+  <h2>delete user</h2>
+  <form class="" action="/adminaction?action=remove" method="post">
+    <input type="text" name="un" value="" placeholder="username">
+    <button type="submit" name="button">add</button>
+  </form>
   <span>
+
+  <h2>mod actions</h2>
   <a href="/logout"><button class="send"type="button" name="button">logout</button></a>
   <a href="/"><button class = "send"  type="button" name="button">return to chat</button></a>
-  </span>
+  <form action="adminaction?action=reset" method="post">
+  <button type="submit" name="reset" value="users" >reset users</button>
+<button type="submit" name="reset" value="messages">reset messages</button>
+</form>
+</form>
+</span>
 </body>
 </html>
