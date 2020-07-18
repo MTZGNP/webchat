@@ -23,7 +23,7 @@
 
     <form class="form" id="sticky" style="position:sticky;" action="/send" method="post">
       <input id="box" class="msgbox" type="text" name="message" value="">
-      <button class="send" type="submit" name="button">send</button>
+      <button id = "send" class="send" type="button" name="button">send</button>
     </form>
     <span>
 
@@ -45,6 +45,23 @@
       setInterval(function() {
         loadlink() // this will run after every 5 seconds
       }, 5000);
+      // this is the id of the submit button
+$("#send").click(function() {
+
+    var url = "/send"; // the script where you handle the form input.
+
+    $.ajax({
+           type: "POST",
+           url: url,
+           data: $("#sticky").serialize(), // serializes the form's elements.
+           success: function(data)
+           {
+               alert(data); // show response from the php script.
+           }
+         });
+
+    return false; // avoid to execute the actual submit of the form.
+});
     </script>
   </center>
 
