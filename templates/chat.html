@@ -46,10 +46,11 @@
         loadlink() // this will run after every 5 seconds
       }, 1000);
       // this is the id of the submit button
-$("#send").click(function() {
+  $(document).ready(function() {
+        $("#sticky").bind("keypress", function(e) {
+            if (e.keyCode == 13) {
+                var url = "/send"; // the script where you handle the form input.
 
-    var url = "/send"; // the script where you handle the form input.
-    $('#sticky')[0].reset();
     $.ajax({
            type: "POST",
            url: url,
@@ -60,6 +61,30 @@ $("#send").click(function() {
 
            }
          });
+    $('#sticky')[0].reset();
+    $("#box").focus();
+
+    return false; // avoid to execute the actual submit of the form.
+            }
+        });
+    });
+$("#send").click(function() {
+
+    var url = "/send"; // the script where you handle the form input.
+
+    $.ajax({
+           type: "POST",
+           url: url,
+           data: $("#sticky").serialize(),
+           // serializes the form's elements.
+           success: function(data)
+           {
+
+           }
+         });
+    $('#sticky')[0].reset();
+    $("#box").focus();
+
     return false; // avoid to execute the actual submit of the form.
 });
     </script>
