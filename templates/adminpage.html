@@ -1,0 +1,27 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>admin page</title>
+</head>
+<body>
+
+  <ol>
+    {%for un in uns%}
+    <li>{{un}}</li>
+    {%endfor%}
+  </ol>
+  <form class="" action="/admin" method="post">
+    <input type="text" name="un" value="" placeholder="username"><br>
+    <input type="password" name="pw" value=""placeholder="password">
+    <button type="submit" name="button">add</button>
+  </form>
+  <span>
+  <a href="/logout"><button class="send"type="button" name="button">logout</button></a>
+  <a href="/"><button class = "send"  type="button" name="button">return to chat</button></a>
+  </span>
+</body>
+</html>
