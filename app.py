@@ -28,7 +28,8 @@ def send():
         timestampStr = dateTimeObj.strftime("%d-%b-%Y (%H:%M:%S)")
         messages.pop(0)
         messages.append((session["nickname"], timestampStr, request.form["message"]))
-    return redirect(url_for('home'))
+        return "202 success"
+    return "401 unauthorized"
 @app.route("/")
 def home():
     if not session.get('logged_in'):
