@@ -22,18 +22,19 @@
   <center>
 
     <form class="form" id="sticky" style="position:sticky;" action="/send" method="post">
-      <textarea id="box" class="msgbox" type="text" name="message" value="">
-      <button id = "send" class="send" type="button" name="button">send</button>
+      <textarea id="box" class="msgbox" type="text" name="message" value=""></textarea>
+      <button  class = "but" class="send" type="button" name="button">send</button>
     </form>
-    <span>
+    <br><br><br>
+    <div align = center>
 
 
 
 
 
-      <a href="/logout"><button class="send" type="button" name="button">logout</button></a>
-      <a href="/admin"> <button class="send" type="button" name="button">admin</button></a>
-    </span>
+      <a href="/logout"><button class="but" type="button" name="button">logout</button></a>
+      &nbsp&nbsp<a href="/admin"> <button class="but" type="button" name="button">admin</button></a>
+    </div>
     <script type="text/javascript">
       function loadlink() {
         $('#all').load('\\chat', function() {
