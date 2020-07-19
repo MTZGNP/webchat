@@ -23,19 +23,22 @@ body {
 .msg{
   padding-bottom: 0px;
   margin-bottom: 0px;
+  margin-left: 20px;
+  margin-right: 20px
 }
+/* Chat containers */
 .container {
   border: 2px solid #dedede;
   background-color: #f1f1f1;
   border-radius: 5px;
-  padding: 5px;
+  padding: 2px;
   margin: 10px 0;
 }
 
 /* Darker chat container */
 .darker {
-  border-color: #ddd;
-  background-color: #eee;
+  border-color: #ccc;
+  background-color: #ddd;
 }
 
 /* Clear floats */
@@ -45,8 +48,8 @@ body {
   display: table;
 }
 
-
-.container a {
+/* Style images */
+.container img {
   float: left;
   max-width: 60px;
   width: 100%;
@@ -55,17 +58,18 @@ body {
 }
 
 /* Style the right image */
-.container a.right {
+.container img.right {
   float: right;
-  align-self: right;
-  margin-left: 40px;
-  margin-right: 0;
+  margin-left: 20px;
+  margin-right:0;
 }
 
 /* Style time text */
 .time-right {
   float: right;
   color: #aaa;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
 }
 
 /* Style time text */

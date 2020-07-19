@@ -1,26 +1,18 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <link rel="stylesheet" href="../static/css/style.css">
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
 
-  </body>
-</html>
 {%for un,ts,msg in messages%}
   {% if un == current %}
   <div class="container darker">
-    <a class="right">{{un}}</a>
-    <p align = right class="msg">{{msg}}</p>
-    <span class="time-left">{{ts}}</span>
+  <img src="https://identicon-api.herokuapp.com/{{un}}/200x200?format=png" alt="{{un}}" height = 60px class="right">
+  <p class = "msg" align = "right">{{msg}}</p>
+  <span class="time-left">{{ts}}</span>
 </div>
+
   {% else %}
   <div class="container">
-    <a>{{un}}</a>
-    <p align = left class="msg" >{{msg}}&nbsp&nbsp&nbsp&nbsp</p>
-    <span class="time-right">{{ts}}</span>
-  </div>
+  <img src="https://identicon-api.herokuapp.com/{{un}}/200x200?format=png" alt="{{un}}" height = 60px>
+  <p class = "msg">{{msg}}</p>
+  <span class="time-right">{{ts}}</span>
+</div>
+
   {% endif %}
 {%endfor%}

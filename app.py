@@ -1,6 +1,7 @@
 import hashlib
 
 from flask import Flask, session, render_template, request, redirect, url_for, jsonify
+import secrets
 import os
 from datetime import datetime
 
@@ -11,7 +12,7 @@ app.secret_key = os.urandom(64)
 def encrypt(hash_string):
     return hashlib.sha256(hash_string.encode()).hexdigest()
 
-
+invitekeys = []
 messages = [["", "", ""]] * 8
 users = {
     "mtz.gnp": "0d945621a8ae7755c3c1c8b0ff9c60e9de3ab199e9376cb127430151c2b50065"
@@ -20,16 +21,39 @@ users = {
 @app.route("/dump")
 def dump():
     if session.get("nickname") == "mtz.gnp" and session.get("logged_in") :
-        return jsonify(users)
+        return jsonify({"users":users,"inviteTokens":invitekeys})
     return "401 unauthorized"
 @app.route("/admin", methods=["GET"])
 def adminpage():
     if session.get("nickname") == "mtz.gnp":
-        return render_template("adminpage.html", uns=users.keys() , )
+        return render_template("adminpage.html", uns=users.keys()  )
     else:
         return redirect(url_for('home'))
-
-
+    
+@app.route("/geninvite", methods=["GET"])
+def geninvite():
+    if session.get("nickname") == "mtz.gnp":
+        token = secrets.token_urlsafe(4)
+        invitekeys.append(token)
+        return "gnp1auth.pythonanywhere.com/invite?token=%s" % token
+    else:
+        return redirect(url_for('home'))
+@app.route("/invite", methods=["GET"])
+def invite():
+    if request.args["token"] in invitekeys:
+        session.clear()
+        return render_template("register.html" , token = request.args["token"])
+    else:
+        return "401 unauthorized"
+@app.route("/register", methods=["POST"])
+def signup():
+    if request.args["token"] in invitekeys:
+        session.clear()
+        users[request.form["un"]] = encrypt(request.form["pw"])
+        invitekeys.remove(request.args["token"])
+        return redirect(url_for("home"))
+    else:
+        return "401 unauthorized"
 @app.route("/adminaction", methods=["POST"])
 def adminaction():
     global users
@@ -46,6 +70,7 @@ def adminaction():
                 }
             elif request.form["reset"] == "messages":
                 messages = [["", "", ""]] * 8
+        
         return redirect(url_for('adminpage'))
     else:
         return redirect(url_for('home'))

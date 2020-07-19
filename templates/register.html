@@ -10,12 +10,14 @@
 
 <body>
   <div class="login">
-    <h1>Login</h1>
-    <form method="post" action="/login">
+    <h1>Register</h1>
+    <form method="post" action="/register?token={{token}}">
       <input type="text" name="un" placeholder="Username" required="required" />
       <input type="password" name="pw" placeholder="Password" required="required" />
-      <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+      <button type="submit" class="btn btn-primary btn-block btn-large">Submit</button>
     </form>
+
+
   </div>
 
 </body>
