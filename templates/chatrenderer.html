@@ -1,7 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+</html>
 {%for un,ts,msg in messages%}
-<div class="container">
-  <img>{{un}}</img>
-  <p style="margin:2px 0px 0px 0px ;font-size:large">&nbsp;&nbsp;&nbsp;{{msg}}</p>
-  <span class="time-right">{{ts}}</span>
+  {% if un == current %}
+  <div class="container darker">
+    <a class="right">{{un}}</a>
+    <p align = right class="msg">{{msg}}</p>
+    <span class="time-left">{{ts}}</span>
 </div>
-  {%endfor%}
+  {% else %}
+  <div class="container">
+    <a>{{un}}</a>
+    <p align = left class="msg" >{{msg}}&nbsp&nbsp&nbsp&nbsp</p>
+    <span class="time-right">{{ts}}</span>
+  </div>
+  {% endif %}
+{%endfor%}

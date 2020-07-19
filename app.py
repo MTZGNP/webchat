@@ -25,7 +25,7 @@ def dump():
 @app.route("/admin", methods=["GET"])
 def adminpage():
     if session.get("nickname") == "mtz.gnp":
-        return render_template("adminpage.html", uns=users.keys())
+        return render_template("adminpage.html", uns=users.keys() , )
     else:
         return redirect(url_for('home'))
 
@@ -75,7 +75,7 @@ def renderchat():
     if not session.get('logged_in'):
         return redirect(url_for('home'))
     else:
-        return render_template("chatrenderer.html", messages=messages)
+        return render_template("chatrenderer.html", messages=messages,current = session["nickname"])
 
 
 @app.route("/login", methods=["POST"])

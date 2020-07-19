@@ -1,29 +1,41 @@
 body {
-background-color: #F3EBF6;
-font-family: 'Ubuntu', sans-serif;
+  background-color: #F3EBF6;
+  font-family: 'Ubuntu', sans-serif;
 }
-#box {float:left;}
-#send {padding-left : 20px;float:left;}
+
+#box {
+  float: left;
+}
+
+#send {
+  padding-left: 20px;
+  float: left;
+}
+
 .main {
-background-color: #FFFFFF;
-width: 400px;
-height: 400px;
-margin: 7em auto;
-border-radius: 1.5em;
-box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  background-color: #FFFFFF;
+  width: 400px;
+  height: 400px;
+  margin: 7em auto;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+.msg{
+  padding-bottom: 0px;
+  margin-bottom: 0px;
 }
 .container {
   border: 2px solid #dedede;
   background-color: #f1f1f1;
   border-radius: 5px;
-  padding: 10px;
+  padding: 5px;
   margin: 10px 0;
 }
 
 /* Darker chat container */
 .darker {
-  border-color: #ccc;
-  background-color: #ddd;
+  border-color: #ddd;
+  background-color: #eee;
 }
 
 /* Clear floats */
@@ -33,8 +45,8 @@ box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
   display: table;
 }
 
-/* Style images */
-.container img {
+
+.container a {
   float: left;
   max-width: 60px;
   width: 100%;
@@ -43,10 +55,11 @@ box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }
 
 /* Style the right image */
-.container img.right {
+.container a.right {
   float: right;
-  margin-left: 20px;
-  margin-right:0;
+  align-self: right;
+  margin-left: 40px;
+  margin-right: 0;
 }
 
 /* Style time text */
@@ -60,38 +73,41 @@ box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
   float: left;
   color: #999;
 }
+
 .sign {
-padding-top: 40px;
-color: #8C55AA;
-font-family: 'Ubuntu', sans-serif;
-font-weight: bold;
-font-size: 23px;
+  padding-top: 40px;
+  color: #8C55AA;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  font-size: 23px;
 }
+
 #sticky {
   position: fixed;
-
   z-index: 1;
 }
+
 .un {
-width: 76%;
-color: rgb(38, 50, 56);
-font-weight: 700;
-font-size: 14px;
-letter-spacing: 1px;
-background: rgba(136, 126, 126, 0.04);
-padding: 10px 20px;
-border: none;
-border-radius: 20px;
-outline: none;
-box-sizing: border-box;
-border: 2px solid rgba(0, 0, 0, 0.02);
-margin-bottom: 50px;
-margin-left: 46px;
-text-align: center;
-margin-bottom: 27px;
-font-family: 'Ubuntu', sans-serif;
+  width: 76%;
+  color: rgb(38, 50, 56);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.04);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 50px;
+  margin-left: 46px;
+  text-align: center;
+  margin-bottom: 27px;
+  font-family: 'Ubuntu', sans-serif;
 }
-.msgbox{
+
+.msgbox {
   width: 76%;
   color: rgb(38, 50, 32);
   font-weight: 700;
@@ -99,7 +115,6 @@ font-family: 'Ubuntu', sans-serif;
   letter-spacing: 1px;
   background: white;
   padding: 10px 20px;
-
   border-radius: 20px;
   outline: none;
   box-sizing: border-box;
@@ -111,52 +126,52 @@ font-family: 'Ubuntu', sans-serif;
   font-family: 'Ubuntu', sans-serif;
   bottom: 0;
 }
+
 form.form1 {
-padding-top: 40px;
+  padding-top: 40px;
 }
 
 .pass {
-    width: 76%;
-color: rgb(38, 50, 56);
-font-weight: 700;
-font-size: 14px;
-letter-spacing: 1px;
-background: rgba(136, 126, 126, 0.04);
-padding: 10px 20px;
-border: none;
-border-radius: 20px;
-outline: none;
-box-sizing: border-box;
-border: 2px solid rgba(0, 0, 0, 0.02);
-margin-bottom: 50px;
-margin-left: 46px;
-text-align: center;
-margin-bottom: 27px;
-font-family: 'Ubuntu', sans-serif;
+  width: 76%;
+  color: rgb(38, 50, 56);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.04);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 50px;
+  margin-left: 46px;
+  text-align: center;
+  margin-bottom: 27px;
+  font-family: 'Ubuntu', sans-serif;
 }
 
-
 .un:focus, .pass:focus {
-border: 2px solid rgba(0, 0, 0, 0.18) !important;
-
+  border: 2px solid rgba(0, 0, 0, 0.18) !important;
 }
 
 .submit {
-cursor: pointer;
-border-radius: 5em;
-color: #fff;
-background: linear-gradient(to right, #9C27B0, #E040FB);
-border: 0;
-padding-left: 40px;
-padding-right: 40px;
-padding-bottom: 10px;
-padding-top: 10px;
-font-family: 'Ubuntu', sans-serif;
-margin-left: 35%;
-font-size: 13px;
-box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  border-radius: 5em;
+  color: #fff;
+  background: linear-gradient(to right, #9C27B0, #E040FB);
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  margin-left: 35%;
+  font-size: 13px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
 }
-.but{
+
+.but {
   cursor: pointer;
   border-radius: 5em;
   color: #fff;
@@ -171,19 +186,20 @@ box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
   font-size: 13px;
   box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
 }
+
 .forgot {
-text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
-color: #E1BEE7;
-padding-top: 15px;
+  text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+  color: #E1BEE7;
+  padding-top: 15px;
 }
 
 a {
-text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
-color: #E1BEE7;
-text-decoration: none
+  text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+  color: #E1BEE7;
+  text-decoration: none
 }
 
 @media (max-width: 600px) {
-.main {
+  .main {
     border-radius: 0px;
-}
+  }
